@@ -1,0 +1,368 @@
+<script type="text/javascript"
+	src="assets/js/bower_components/jquery-royal-slider/jquery.royalslider.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/vendor/jquery-ui-1.8.23.custom.min.js"></script>
+<script type="text/javascript"
+	src="assets/js/vendor/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.js"></script>
+<script type="text/javascript" src="assets/js/jquery.isosquiz.js"></script>
+<script type="text/javascript">
+	var _gaq = !!_gaq ? window.location.reload(true) : [];
+	_gaq.push([ '_setAccount', 'UA-35762965-1' ]);
+	_gaq.push([ '_trackPageview' ]);
+
+	(function() {
+		//console.log(" 111111111111 -------------- =============== ");
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+
+	$(function() {
+		//console.log(" 2222222222 -------------- =============== ");
+		/*var e = {
+		  serviceURL: "/ajax/",
+		  quiz_data: qdata
+		};
+		var t = $("body").quiz(e).data("quiz");
+		$("#quiz-landing p.rsABlock-title").css({
+		  cursor: "pointer"
+		});
+		$("#play-btn, #quiz-landing p.rsABlock-title").on("click", function (e) {
+		  t.options.rsQuestions.next();
+		  return false
+		})*/
+	})
+</script>
+
+<div class="page-header quiz">
+
+	<div class="wlt-grid-container container">
+		<div class="main-container">
+			<div id="main" class="main container clearfix">
+				<div class="royalSlider rsDefault " id="rsQuestions">
+
+
+					<article id="quiz-landing" class="clearfix rsContent blue"
+						style="transition: opacity 400ms ease-in-out; visibility: visible; opacity: 1;">
+
+						<div class="eight columns left-wrapper">
+
+							<p class="underdashed rsABlock-subtitle">{{quizPageData.heading1}}</p>
+
+							<p class="underdashed rsABlock-title" style="cursor: pointer;">
+								<span style="color: #333333;">{{quizPageData.heading2Black}}</span><br>{{quizPageData.heading2White}}
+							</p>
+
+							<p class="underdashed rsABlock-subtitle">{{quizPageData.heading3}}</p>
+
+							<p class="rsABlock-body " ng-repeat="item in quizPageData.info">
+								{{item.text}}</p>
+
+							<div class="isos-btns" style="margin-top: 26px">
+								<a id="play-btn"
+									class="btn-42-anim btn-white-large color-blue apple" href=""
+									title="Play Spot the Risk!"
+									onclick="javascript: _gaq.push(['_trackPageview', '/play-quiz']);">Play
+									Spot the Risk!</a>
+							</div>
+
+						</div>
+
+						<div class="eight columns right-wrapper">
+
+							<p class="animation">
+								<img
+									src="http://spottherisk.com/assets/img/question_images/intro.jpg"
+									style="max-width: 96%;" alt="Spot the Risk!">
+							</p>
+
+						</div>
+
+					</article>
+
+					<article id="q{{qsn.id}}" class="clearfix rsContent question" ng-repeat="qsn in q_data">
+
+						<div class="eight columns left-wrapper clearfix">
+
+							<p class="underdashed rsABlock-subtitle">Question {{qsn.id}}</p>
+
+							<!-- <p class="underdashed rsABlock-question">WHICH OF THE FOLLOWING CAN BE VERY USEFUL FOR YOUR SECURITY <span style="color:#333333;">WHEN PACKING?</span></p> -->
+							<p class="underdashed rsABlock-question">{{qsn.content}}</p>
+
+							<div id="rsAnswers-{{qsn.id}}" class="answers-wrapper rsDefault">
+
+								<div class="answers">
+
+									<a id="a{{qsn.answers[0].id}}"
+										class="btn-answer-anim color-white" href="">
+										<div>
+											<span>{{qsn.answers[0].content}}</span>
+										</div>
+									</a> <a id="a{{qsn.answers[1].id}}"
+										class="btn-answer-anim color-white" href="">
+										<div>
+											<span>{{qsn.answers[1].content}}</span>
+										</div>
+									</a> <a id="a{{qsn.answers[2].id}}"
+										class="btn-answer-anim color-white" href="">
+										<div>
+											<span>{{qsn.answers[2].content}}</span>
+										</div>
+									</a> <a id="a{{qsn.answers[3].id}}"
+										class="btn-answer-anim color-white" href="">
+										<div>
+											<span>{{qsn.answers[3].content}}</span>
+										</div>
+									</a>
+
+								</div>
+
+								<div class="response">
+
+									<p class="rsABlock-subtitle">The correct answer was</p>
+
+									<p class="rsABlock-body">Take our Spot the Risk! challenge
+										to see if you travel as safely as you thought! Answer as
+										quickly as you can to be in with a chance of winning a
+										fantastic trip of a lifetime to Thailand or a runners-up new
+										iPad.</p>
+
+									<a class="btn-42-anim btn-white-large color-pink" href=""
+										title="Next question">Next question</a>
+
+								</div>
+
+							</div>
+
+							<div class="download-app-btn clearfix">
+
+								<img alt="small mobiles"
+									src="http://spottherisk.com/assets/img/mobiles-small.png">
+								<p>Download the Assistance App for one-touch assistance or
+									advice worldwide</p>
+								<a target="_blank" title="Download the App"
+									href="http://app.internationalsos.com"
+									class="btn-10-anim btn-orange-small">Download the App</a>
+
+							</div>
+						</div>
+
+						<div class="eight columns right-wrapper">
+
+							<!-- <p class="animation with-shadow"><img src="http://spottherisk.com/assets/img/question_images/q1.jpg" style="max-width:88%;" alt="Spot the Risk!"></p> -->
+							<p class="animation with-shadow"></p>
+
+						</div>
+
+					</article>
+					<article id="quiz-results" class="clearfix rsContent blue">
+
+						<div class="eight columns left-wrapper">
+
+							<p class="underdashed rsABlock-title">WELL DONE!</p>
+
+							<div id="results-progress-wrapper" class="">
+								<div id="results-progress" class="clearfix underdashed">
+									<p class="push-left">Final Score:</p>
+									<div class="push-left clearfix">
+
+										<div id="rprogress1" class="progress-bullet"></div>
+										<div id="rprogress2" class="progress-bullet"></div>
+										<div id="rprogress3" class="progress-bullet"></div>
+										<div id="rprogress4" class="progress-bullet"></div>
+										<div id="rprogress5" class="progress-bullet"></div>
+										<div id="rprogress6" class="progress-bullet"></div>
+										<div id="rprogress7" class="progress-bullet"></div>
+										<div id="rprogress8" class="progress-bullet"></div>
+										<div id="rprogress9" class="progress-bullet"></div>
+										<div id="rprogress10" class="progress-bullet"></div>
+
+									</div>
+								</div>
+							</div>
+
+							<p class="underdashed rsABlock-subtitle">You got 6/10 correct
+								in a time of 07:23</p>
+
+							<p class="rsABlock-body">We hope you have learnt something
+								useful for your next trip.</p>
+							<p class="rsABlock-body">Now submit your score for a chance
+								to win.</p>
+
+							<form action="/ajax/submit_score" method="post"
+								accept-charset="utf-8" class="signup" id="signup-form">
+								<div style="display: none">
+									<input type="hidden" name="itrt" value="3d487698aef029f0de99104fff76798c">
+									<input type="hidden" name="commsAccepted" value="0">
+									<input type="hidden" name="tnc" value="0">									
+								</div>
+								<p class="clearfix">
+									<label for="name" class="slabel">Name<span title="This field is required." class="form-required">*</span></label>
+									<span class="signup-input color-blue">
+									<input type="text" name="name" value="" id="name"></span>
+								</p>
+
+								<p class="clearfix">
+									<label for="company" class="slabel">Company<span
+										title="This field is required." class="form-required">*</span></label>
+									<span class="signup-input color-blue">
+									<input type="text" name="company" value="" id="company"></span>
+								</p>
+
+								<p class="clearfix">
+									<label for="country" class="slabel">Country<span
+										title="This field is required." class="form-required">*</span></label>
+									<span class="signup-input signup-input-select color-blue">
+									<select name="country"  id="country">
+									<option>Please select..</option>
+									<option ng-repeat="cnt in countries" value="{{cnt.optionValue}}">{{cnt.optionKey}}</option>	
+									</select></span>
+									
+								</p>
+
+								<p class="clearfix">
+									<label for="email" class="slabel">Email<span
+										title="This field is required." class="form-required">*</span></label>
+									<span class="signup-input color-blue">
+									<input type="text" name="email" value="" id="email"></span>
+								</p>
+								<p>
+									<input type="checkbox" name="comms" class="signup-checkbox" value="accept" id="comms" style="margin: 0px">
+										<label for="comms">
+										<span>I agree to receive International SOS communication on news about travel risk.</span>
+										</label>
+								</p>
+								<p>
+									<input type="checkbox" name="terms" class="signup-checkbox" value="accept" id="terms"
+										style="margin: 0px"> <label for="terms">
+										<span>By submitting, I agree to International SOS <a href="/#/official-terms" target="_blank" title="official rules">Terms & Conditions</a> and Privacy Policy. Read more about our Privacy & Cookies policy and our GDPR Statement, do not hesitate to contact us  should you have any questions or would like your contact information and activities to be completely removed from our database.
+									</span></label>
+								</p>
+								<div class="form-responce"></div>
+
+								<div class="isos-btns" style="margin-top: 0px">
+									<button type="submit" value="Submit your score" name="submit"
+										id="submit-btn" class="btn-42-anim btn-white-large color-blue">
+										Submit your score</button>
+									<!-- <a id="submit-btn" class="btn-42-anim btn-white-large color-blue" href="/quiz" title="Submit your score">Submit your score</a> -->
+									<a id="again-btn"
+										class="btn-42-anim btn-white-large color-blue android" href=""
+										title="Try again" ng-click="tryAgain()"
+										onclick="javascript: _gaq.push(['_trackEvent', 'try again button', 'submit', 'try again']);">Try
+										Again</a>
+								</div>
+
+								<div class="download-app-btn clearfix">
+
+									<img alt="small mobiles"
+										src="http://spottherisk.com/assets/img/mobiles-small.png">
+									<p>Download the Assistance App for one-touch assistance or
+										advice worldwide</p>
+									<a target="_blank" title="Download the App"
+										href="http://app.internationalsos.com"
+										class="btn-10-anim btn-orange-small">Download the App</a>
+
+								</div>
+
+							</form>
+
+
+						</div>
+
+						<div class="eight columns right-wrapper">
+
+							<p class="animation">
+								<img alt="Spot the Risk!" style="max-width: 88%;"
+									src="http://spottherisk.com/assets/img/question_images/end-image.jpg">
+							</p>
+
+						</div>
+
+					</article>
+					
+					<article id="quiz-leaderboard" class="clearfix rsContent blue">
+
+						<div class="eight columns left-wrapper">
+
+							<!-- 			<p class="underdashed rsABlock-subtitle numone">Your score has been submitted</p> -->
+							<!-- 			<p class="underdashed rsABlock-title"></p> -->
+
+							<p class="underdashed rsABlock-subtitle">Now that you've
+								played the game, why not download the App?</p>
+
+							<p class="rsABlock-body">Keep checking back with us to see
+								how you rank.</p>
+							<div id="leaderboard-container">
+								<div id="leaderboard-wrapper">
+									<div id="leaderboard" class="underdashed">
+									</div>									
+								</div>
+							</div>
+
+							<div class="isos-btns" style="margin-top: 26px">
+								<a class="btn-42-anim btn-white-large color-blue apple"
+									href="http://app.internationalsos.com" title="Download the App"
+									onclick="javascript: _gaq.push(['_trackPageview', '/download-app-tab']);">Download
+									the App</a> <a
+									class="btn-42-anim btn-white-large color-blue android" href=""
+									title="Try again" ng-click="tryAgain()"
+									onclick="javascript: _gaq.push(['_trackEvent', 'try again button', 'submit', 'try again']);">Try
+									Again</a>
+							</div>
+
+							<!--
+                                        <div class="download-app-btn clearfix">
+
+                                            <img alt="small mobiles" src="http://spottherisk.com/assets/img/mobiles-small.png">
+                                            <p>Download the Assistance App for one-touch assistance or advice worldwide</p>
+                                            <a target="_blank" title="Download the App" href="http://app.internationalsos.com" class="btn-10-anim btn-orange-small">Download the App</a>
+
+                                        </div>
+                             -->
+
+						</div>
+
+						<div class="eight columns right-wrapper">
+
+							<p class="animation">
+								<img alt="Spot the Risk!" style="max-width: 88%;"
+									src="http://spottherisk.com/assets/img/question_images/end-image-leaderboard.jpg">
+							</p>
+
+						</div>
+
+					</article>
+				</div>
+				
+					
+
+				<div id="progress-wrapper">
+					<div id="progress" class="clearfix">
+						<p class="push-left">00:00</p>
+						<div class="push-left clearfix">
+
+							<div id="progress1" class="progress-bullet"></div>
+							<div id="progress2" class="progress-bullet"></div>
+							<div id="progress3" class="progress-bullet"></div>
+							<div id="progress4" class="progress-bullet"></div>
+							<div id="progress5" class="progress-bullet"></div>
+							<div id="progress6" class="progress-bullet"></div>
+							<div id="progress7" class="progress-bullet"></div>
+							<div id="progress8" class="progress-bullet"></div>
+							<div id="progress9" class="progress-bullet"></div>
+							<div id="progress10" class="progress-bullet"></div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

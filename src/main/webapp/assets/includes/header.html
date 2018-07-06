@@ -1,0 +1,154 @@
+<div id="header-top" class="sixteen columns" style="
+    margin-right: 32px;
+    text-align: right;
+">						
+		<div id="header-top-inner">
+			<div id="fb-root"></div>
+			<script>
+			window.fbAsyncInit = function()
+			{
+				// init the FB JS SDK
+				FB.init({
+					appId      : null, // App ID from the App Dashboard
+					channelUrl : 'http://spottherisk.com/channel.php', // Channel File for x-domain communication
+					status     : false, // check the login status upon init?
+					cookie     : true, // set sessions cookies to allow your server to access the session?
+					xfbml      : true  // parse XFBML tags on this page?
+				});
+
+				// Additional initialization code such as adding Event Listeners goes here
+				FB.Event.subscribe('edge.create', function(targetUrl)
+				{
+					_gaq.push(['_trackSocial', 'facebook', 'like', targetUrl]);
+				});
+					
+				FB.Event.subscribe('edge.remove', function(targetUrl)
+				{
+					_gaq.push(['_trackSocial', 'facebook', 'unlike', targetUrl]);
+				});
+				
+				FB.Event.subscribe('message.send', function(targetUrl)
+				{
+					_gaq.push(['_trackSocial', 'facebook', 'send', targetUrl]);
+				});
+			};
+
+			// Load the SDK's source Asynchronously
+			(function(d, debug){
+				var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement('script'); js.id = id; js.async = true;
+				js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+				ref.parentNode.insertBefore(js, ref);
+			}(document, /*debug*/ false));	
+			</script>
+			<fb:like send="false" layout="button_count" width="450" show_faces="false"></fb:like>							
+
+		    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-count="none"></a>
+		    <script>
+			window.twttr = (function (d,s,id)
+			{
+				var t, js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+				js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+				return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+			}(document, "script", "twitter-wjs"));
+
+			function trackTwitter(intent_event) {
+				_gaq.push(['_trackSocial', 'twitter', intent_event.type]);
+			}
+
+			function extractParamFromUri(uri, paramName) {
+				if (!uri) {
+					return;
+				}
+				var regex = new RegExp('[\\?&#]' + paramName + '=([^&#]*)');
+				var params = regex.exec(uri);
+				if (params != null) {
+					return unescape(params[1]);
+				}
+				return;
+			}
+			
+			//Wrap event bindings - Wait for async js to load
+			twttr.ready(function (twttr) {
+				//event bindings
+				twttr.events.bind('tweet', trackTwitter);
+			});
+			</script>
+		    
+			<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+			<script type="IN/Share" data-onSuccess="trackLinkedin"></script>
+			<script type="text/javascript">
+			function trackLinkedin()
+			{
+				_gaq.push(['_trackSocial', 'linkedin', 'share']);
+			}
+			</script>
+			
+			<div class="g-plusone" data-size="medium" data-annotation="none"></div>
+			
+			<script type="text/javascript">
+			  window.___gcfg = {lang: 'en-GB'};
+			
+			  (function() {
+			    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			    po.src = 'https://apis.google.com/js/plusone.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			  })();
+			</script>									
+		</div>
+												
+		</div>
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header" ng-controller="logoCtrl">
+    <button type="button" class="navbar-toggle" ng-click="toggleNavBar()">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" ui-sref="home" style="height:111px;">
+      <img src="assets/img/logo.png" class="logo_img" ng-click="goToHome()"/>
+    </a>
+  </div>
+<div class="sos-app-download">
+	
+	<div class="six columns offset-by-two omega">
+       
+       <div id="downloads-wrapper">
+               <div id="downloads" class="clearfix">
+                       
+                       <p>Download the App</p>
+                       <div id="download-icons" class="clearfix">
+                               <a id="download-apple" title="Download Apple App" href="http://app.internationalsos.com" onClick="javascript: _gaq.push(['_trackPageview', '/download-app-home']);"><img alt="Download Apple App" src="/assets/img/download-apple.jpg"></a>
+                               <a id="download-android" title="Download Android App" href="http://app.internationalsos.com" onClick="javascript: _gaq.push(['_trackPageview', '/download-app-home']);"><img alt="Download Android App" src="/assets/img/download-android.jpg"></a>
+                               <a id="download-blackberry" title="Download Blackberry App" href="http://app.internationalsos.com" onClick="javascript: _gaq.push(['_trackPageview', '/download-app-home']);"><img alt="Download Blackberry App" src="/assets/img/download-blackberry.jpg"></a>
+                        </div>
+                        
+                </div>
+        </div>
+</div>
+
+</div>
+	
+	
+	
+  <div class="menu-nav" id="sos-header-bottom">
+    <ul class="nav navbar-nav navbar-right" id="primary-links">
+      <li id="primary-links-first" ui-sref-active="active"><a ui-sref="quiz">Play Spot the Risk <span class="select-border"></span></a></li>
+      <li ui-sref-active="active"><a ui-sref="app">Get the App <span class="select-border"></span></a></li>
+      <li ui-sref-active="active"><a ui-sref="about-us">About International SOS <span class="select-border"></span></a></li>
+      <li ui-sref-active="active"><a ui-sref="leaderboard">Spot The Risk Leaderboard <span class="select-border"></span></a></li> 
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+<!-- Message Div Start -->
+<div class="messages col-md-5">
+  <div class="successmsg" bn-slide-show="successmsg" slide-show-duration="2000">{{displayStatusMsg}}</div>
+  <div class="errormsg" bn-slide-show="errormsg" slide-show-duration="2000">{{displayStatusMsg}}</div>
+</div>
+<!-- Message Div End -->

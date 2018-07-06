@@ -1,0 +1,31 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header" ng-controller="logoCtrl">
+    <button type="button" class="navbar-toggle" ng-click="toggleNavBar()">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" ui-sref="home">
+      <img src="assets/img/logo.png" class="logo_img" ng-click="goToHome()"/>
+    </a>
+  </div>
+	
+  <div class="menu-nav" id="sos-header-bottom">
+    <ul class="nav navbar-nav navbar-right" id="primary-links">
+      <li id="primary-links-first" ui-sref-active="active"><a ui-sref="quiz">Play Spot the Risk <span class="select-border"></span></a></li>
+      <li ui-sref-active="active"><a ui-sref="app">Get the App <span class="select-border"></span></a></li>
+      <li ui-sref-active="active"><a ui-sref="about-us">About International SOS <span class="select-border"></span></a></li>
+      <li ui-sref-active="active"><a ui-sref="leaderboard">Spot The Risk Leaderboard <span class="select-border"></span></a></li> 
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+<!-- Message Div Start -->
+<div class="messages col-md-5">
+  <div class="successmsg" bn-slide-show="successmsg" slide-show-duration="2000">{{displayStatusMsg}}</div>
+  <div class="errormsg" bn-slide-show="errormsg" slide-show-duration="2000">{{displayStatusMsg}}</div>
+</div>
+<!-- Message Div End -->

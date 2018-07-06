@@ -1,0 +1,156 @@
+<div class="header-container">
+				<header id="header" class="container clearfix">
+
+					<div id="header-top" class="sixteen columns">
+						
+						<div id="header-top-inner">
+
+							<!--[if lte IE 8]>
+							<div id="fb-root"></div>
+							<script>
+							window.fbAsyncInit = function()
+							{
+								// init the FB JS SDK
+								FB.init({
+									appId      : null, // App ID from the App Dashboard
+									channelUrl : 'http://spottherisk.com/channel.php', // Channel File for x-domain communication
+									status     : false, // check the login status upon init?
+									cookie     : true, // set sessions cookies to allow your server to access the session?
+									xfbml      : true  // parse XFBML tags on this page?
+								});
+
+								// Additional initialization code such as adding Event Listeners goes here
+								FB.Event.subscribe('edge.create', function(targetUrl)
+								{
+									_gaq.push(['_trackSocial', 'facebook', 'like', targetUrl]);
+								});
+									
+								FB.Event.subscribe('edge.remove', function(targetUrl)
+								{
+									_gaq.push(['_trackSocial', 'facebook', 'unlike', targetUrl]);
+								});
+								
+								FB.Event.subscribe('message.send', function(targetUrl)
+								{
+									_gaq.push(['_trackSocial', 'facebook', 'send', targetUrl]);
+								});
+							};
+
+							// Load the SDK's source Asynchronously
+							(function(d, debug){
+								var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+								if (d.getElementById(id)) {return;}
+								js = d.createElement('script'); js.id = id; js.async = true;
+								js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+								ref.parentNode.insertBefore(js, ref);
+							}(document, /*debug*/ false));	
+							</script>
+							<fb:like send="false" layout="button_count" width="450" show_faces="false"></fb:like>							
+	
+						    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-count="none"></a>
+						    <script>
+							window.twttr = (function (d,s,id)
+							{
+								var t, js, fjs = d.getElementsByTagName(s)[0];
+								if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+								js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+								return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+							}(document, "script", "twitter-wjs"));
+
+							function trackTwitter(intent_event) {
+								_gaq.push(['_trackSocial', 'twitter', intent_event.type]);
+							}
+
+							function extractParamFromUri(uri, paramName) {
+								if (!uri) {
+									return;
+								}
+								var regex = new RegExp('[\\?&#]' + paramName + '=([^&#]*)');
+								var params = regex.exec(uri);
+								if (params != null) {
+									return unescape(params[1]);
+								}
+								return;
+							}
+							
+							//Wrap event bindings - Wait for async js to load
+							twttr.ready(function (twttr) {
+								//event bindings
+								twttr.events.bind('tweet', trackTwitter);
+							});
+							</script>
+						    
+							<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+							<script type="IN/Share" data-onSuccess="trackLinkedin"></script>
+							<script type="text/javascript">
+							function trackLinkedin()
+							{
+								_gaq.push(['_trackSocial', 'linkedin', 'share']);
+							}
+							</script>
+							
+							<div class="g-plusone" data-size="medium" data-annotation="none"></div>
+							
+							<script type="text/javascript">
+							  window.___gcfg = {lang: 'en-GB'};
+							
+							  (function() {
+							    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+							    po.src = 'https://apis.google.com/js/plusone.js';
+							    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+							  })();
+							</script>
+							
+							<![endif]-->
+										
+						</div>
+												
+					</div>				
+
+					<div id="header-middle" class="sixteen columns clearfix">
+					
+						<div class="seven columns alpha">
+							<a id="logo" rel="home" title="Home" href="/"><img alt="Home" src="/assets/img/logo.jpg"></a>
+						</div>
+					
+						<div class="six columns offset-by-two omega">
+							
+							<div id="downloads-wrapper">
+								<div id="downloads" class="clearfix">
+									
+									<p>Download the App</p>
+									<div id="download-icons" class="clearfix">
+										<a id="download-apple" title="Download Apple App" href="http://app.internationalsos.com" onClick="javascript: _gaq.push(['_trackPageview', '/download-app-home']);"><img alt="Download Apple App" src="/assets/img/download-apple.jpg"></a>
+										<a id="download-android" title="Download Android App" href="http://app.internationalsos.com" onClick="javascript: _gaq.push(['_trackPageview', '/download-app-home']);"><img alt="Download Android App" src="/assets/img/download-android.jpg"></a>
+										<a id="download-blackberry" title="Download Blackberry App" href="http://app.internationalsos.com" onClick="javascript: _gaq.push(['_trackPageview', '/download-app-home']);"><img alt="Download Blackberry App" src="/assets/img/download-blackberry.jpg"></a>
+									</div>
+									
+								</div>
+							</div>
+						
+						</div>
+						
+						<div id="mobile-menu"><a title="Mobile Menu" href=""><img alt="Mobile Menu" src="/assets/img/mobile-menu.jpg"></a></div>
+						
+					</div>				
+
+					<div id="header-bottom" class="sixteen columns">
+						<nav>
+							<ul id="primary-links" class="links clearfix">
+								
+								<!-- <li id="primary-links-first" class="first "><a title="Home" href="/home" class="">Home</a></li> -->
+								
+								<li id="primary-links-first" class="first active"><a title="Play Spot the Risk" href="/quiz" class="active">Play Spot the Risk</a></li>
+
+								<li class=""><a title="Get the App" href="/app" class="">Get the App</a></li>
+								
+								<li class=""><a title="About International SOS" href="/about-us" class="">About International SOS</a></li>
+
+								<li id="primary-links-last" class="last "><a title="Spot The Risk Leaderboard" href="/leaderboard" class="">Spot The Risk Leaderboard</a></li>
+								
+							</ul>
+						</nav>
+					</div>				
+					
+				</header>
+			</div>
