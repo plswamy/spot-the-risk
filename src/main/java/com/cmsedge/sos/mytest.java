@@ -13,7 +13,7 @@ import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
 
 public class mytest {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		String idForEncode = "Password1234";
 		
 		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -21,6 +21,6 @@ public class mytest {
 		
 		System.out.println("encoded password for String  " + idForEncode + " is ");
 		System.out.println(encPass);
-	}
+	}*/
 
 }
