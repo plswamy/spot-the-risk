@@ -87,8 +87,8 @@
                              console.log("Something Bad Happened, Service failed");
                        })
                        
-            //$("#closebtn").click();
-  			//location.reload(true);
+            $("#closebtn").click();
+  			location.reload(true);
 			//$("#PageEditForm").submit();
 		}
   		
@@ -197,8 +197,8 @@
                              //alert("Something Bad Happened, Service failed");
                              console.log("Something Bad Happened, Service failed");
                        })
-            //$("#closebtn").click();
-  			//location.reload(true);
+            $("#closebtn").click();
+  			location.reload(true);
 		}
   		
 //  		function setQuestionValue(){
