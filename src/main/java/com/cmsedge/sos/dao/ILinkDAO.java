@@ -10,7 +10,7 @@ public interface ILinkDAO {
 
 	Link getLinkById(int linkId);
 
-	boolean addLink(Link link);
+	int addLink(Link link);
 
 	void updateLink(Link link);
 

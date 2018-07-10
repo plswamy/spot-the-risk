@@ -19,22 +19,22 @@ public class LinkService implements ILinkService {
 		return null;
 	}
 
-	@Override
-	public boolean addLink(Link link) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void updateLink(Link link) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteLink(int linkId) {
-		// TODO Auto-generated method stub
-
-	}
+//	@Override
+//	public boolean addLink(Link link) {
+//		// TODO Auto-generated method stub
+//		return false;
+//	}
+//
+//	@Override
+//	public void updateLink(Link link) {
+//		// TODO Auto-generated method stub
+//
+//	}
+//
+//	@Override
+//	public void deleteLink(int linkId) {
+//		// TODO Auto-generated method stub
+//
+//	}
 
 }

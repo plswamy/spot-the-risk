@@ -10,9 +10,9 @@ public interface ILinkService {
 
 	Link getLinkById(int linkId);
 
-	boolean addLink(Link link);
-
-	void updateLink(Link link);
-
-	void deleteLink(int linkId);
+//	boolean addLink(Link link);
+//
+//	void updateLink(Link link);
+//
+//	void deleteLink(int linkId);
 }

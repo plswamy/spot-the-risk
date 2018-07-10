@@ -63,6 +63,10 @@ h2.index-header-2.right-bar{
 	border: 1px solid rgb(186, 34, 34) !important;
 }
 
+.sos-page-tabs li a{
+	color: #c0c0c0;	
+}
+
 blockquote, q {
   quotes: none;
 }

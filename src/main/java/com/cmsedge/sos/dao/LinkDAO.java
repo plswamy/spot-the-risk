@@ -1,5 +1,10 @@
 package com.cmsedge.sos.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +14,10 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -69,21 +77,41 @@ public class LinkDAO extends JdbcDaoSupport implements ILinkDAO {
 	}
 
 	@Override
-	public boolean addLink(Link link) {
-		// TODO Auto-generated method stub
-		return false;
+	public int addLink(Link link) {
+		String sql = "insert into link (title, linkText, linkSrc, target, pageid) values (?,?,?,?,?)";
+//		int[] types = { Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.INTEGER };
+//		int rows = jdbcTemplate.update(sql,new Object[] { link.getTitle(), link.getLinkText(), link.getLinkSrc(), link.getTarget(),link.getPageId()},types);
+		KeyHolder holder = new GeneratedKeyHolder();
+		int rows = jdbcTemplate.update(new PreparedStatementCreator() {
+			@Override
+			public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+				PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+				ps.setString(1, link.getTitle());
+				ps.setString(2, link.getLinkText());
+				ps.setString(3, link.getLinkSrc());
+				ps.setString(4, link.getTarget());
+				ps.setInt(5, link.getPageId());
+				return ps;
+			}
+		}, holder);
+		if(rows>0) return holder.getKey().intValue();
+		else return 0;
 	}
 
 	@Override
 	public void updateLink(Link link) {
-		// TODO Auto-generated method stub
+		String sql = "update link set title = ?, linkText = ?, linkSrc = ?, target = ?, pageid = ? where id = ?";
+		int[] types = { Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.INTEGER, Types.INTEGER };
+		jdbcTemplate.update(sql,
+				new Object[] { link.getTitle(), link.getLinkText(), link.getLinkSrc(), link.getTarget(),link.getPageId(), link.getId()},
+				types);
 
 	}
 
 	@Override
 	public void deleteLink(int linkId) {
-		// TODO Auto-generated method stub
-
+		String sql = "delete from link where id in (" + linkId + ")";
+		jdbcTemplate.update(sql);
 	}
 
 }

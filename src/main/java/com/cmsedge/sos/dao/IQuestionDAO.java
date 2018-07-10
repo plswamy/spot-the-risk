@@ -9,7 +9,7 @@ public interface IQuestionDAO {
 
 	Question getQuestionById(int questionId);
 
-	void addQuestion(Question question);
+	int addQuestion(Question question);
 
 	void updateQuestion(Question question);
 

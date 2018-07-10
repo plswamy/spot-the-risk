@@ -1,5 +1,9 @@
 package com.cmsedge.sos.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +14,10 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -76,27 +83,39 @@ public class AnswerDAO extends JdbcDaoSupport implements IAnswerDAO {
 	}
 
 	@Override
-	public void addAnswer(Answer answer) {
+	public int addAnswer(Answer answer) {
 		if (!isAnswerExists(answer.getSiteId(), answer.getContent())) {
-			String sql = "insert into answers (content, response, is_correct, question_id, site_id) values (?,?,?,?,?,?)";
-			int[] types = { Types.VARCHAR, Types.VARCHAR, Types.BOOLEAN, Types.INTEGER, Types.INTEGER };
-			jdbcTemplate.update(sql,
-					new Object[] { answer.getContent(), answer.getResponse(), answer.getIs_correct(),
-							answer.getQuestion_id(), answer.getSiteId() },
-					types);
+			String sql = "insert into answers (content, response, is_correct, question_id, site_id) values (?,?,?,?,?)";
+//			int[] types = { Types.VARCHAR, Types.VARCHAR, Types.BOOLEAN, Types.INTEGER, Types.INTEGER };
+//			jdbcTemplate.update(sql, new Object[] { answer.getContent(), answer.getResponse(), answer.getIs_correct(),answer.getQuestion_id(), answer.getSiteId() },types);
+			
+			KeyHolder holder = new GeneratedKeyHolder();
+			int rows = jdbcTemplate.update(new PreparedStatementCreator() {
+				@Override
+				public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+					PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+					ps.setString(1, answer.getContent());
+					ps.setString(2, answer.getResponse());
+					ps.setInt(3, Integer.parseInt(answer.getIs_correct()));
+					ps.setInt(4, answer.getQuestion_id());
+					ps.setInt(5, answer.getSiteId());
+					return ps;
+				}
+			}, holder);
+			if(rows > 0)
+				return holder.getKey().intValue();
 		}
+		return 0;
 	}
 
 	@Override
 	public void updateAnswer(Answer answer) {
-		if (!isAnswerExists(answer.getSiteId(), answer.getContent())) {
 			String sql = "update answers set content = ?, response = ?, is_correct = ?, question_id = ?, site_id = ? where id = ?";
-			int[] types = { Types.VARCHAR, Types.VARCHAR, Types.BOOLEAN, Types.INTEGER, Types.INTEGER, Types.INTEGER };
+			int[] types = { Types.VARCHAR, Types.VARCHAR, Types.INTEGER, Types.INTEGER, Types.INTEGER, Types.INTEGER };
 			jdbcTemplate.update(sql,
-					new Object[] { answer.getContent(), answer.getResponse(), answer.getIs_correct(),
+					new Object[] { answer.getContent(), answer.getResponse(), Integer.parseInt(answer.getIs_correct()),
 							answer.getQuestion_id(), answer.getSiteId(), answer.getId() },
 					types);
-		}
 	}
 
 	@Override

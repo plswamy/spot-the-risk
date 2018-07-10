@@ -14,6 +14,7 @@ public class Question implements Serializable {
 	private String response;
 	private Integer siteId;
 	private List<Answer> answers;
+	private String image_name;
 
 	public Integer getId() {
 		return id;
@@ -56,6 +57,14 @@ public class Question implements Serializable {
 
 	public void setAnswers(List<Answer> answers) {
 		this.answers = answers;
+	}
+
+	public String getImage_name() {
+		return image_name;
+	}
+
+	public void setImage_name(String image_name) {
+		this.image_name = image_name;
 	}
 
 	public String toJsonStr() {

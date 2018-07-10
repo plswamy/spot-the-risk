@@ -9,7 +9,7 @@ public interface ISiteDAO {
 
 	Site getSiteById(int siteId);
 
-	void addSite(Site site);
+	int addSite(Site site);
 
 	void updateSite(Site site);
 

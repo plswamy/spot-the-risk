@@ -11,7 +11,7 @@ public interface IAnswerDAO {
 
 	Answer getAnswerById(int answerId);
 
-	void addAnswer(Answer answer);
+	int addAnswer(Answer answer);
 
 	void updateAnswer(Answer answer);
 

@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cmsedge.sos.model.Leaderboard;
@@ -34,6 +36,7 @@ import com.cmsedge.sos.service.IPageService;
 import com.cmsedge.sos.service.IQuestionService;
 import com.cmsedge.sos.util.SOSConstants;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.gson.Gson;
 
 @Controller
 public class SOSController {
@@ -134,5 +137,70 @@ public class SOSController {
 		ObjectNode siteData = pageService.getPageData(1);
 		return new ResponseEntity<ObjectNode>(siteData, HttpStatus.OK);
 	}
-	
+
+	@RequestMapping(value = "/admin/addPage", method = RequestMethod.POST)
+	@ResponseBody
+	public int addPage(@RequestBody Page page) {
+		int pageId = pageService.addPage(page);
+		return pageId;
+	}
+
+	@RequestMapping(value = "/admin/updatePage", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<ObjectNode> updatePage(@RequestBody Page page) {
+		pageService.updatePage(page);
+		return new ResponseEntity<ObjectNode>(HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/admin/deletePage", method = RequestMethod.POST)
+	@ResponseBody
+	public String deletePage(ModelMap model) {
+		if (req.getParameter("pageId") != null) {
+			int pageId = Integer.parseInt(req.getParameter("pageId"));
+			pageService.deletePage(pageId);
+			return "success";
+		}
+		return "unsuccess";
+	}
+
+	@RequestMapping(value = "/admin/addQuestion", method = RequestMethod.POST)
+	@ResponseBody
+	public int addQuestion(@RequestBody Question question) {
+		int questionId = questionService.addQuestion(question);
+		return questionId;
+	}
+
+	/*@RequestMapping(value = "/admin/updateQuestion", method = RequestMethod.POST)
+	@ResponseBody
+	public String upatgeQuestion(@RequestBody Question question) {
+		questionService.updateQuestion(question);
+		return "success";
+	}*/
+
+	@RequestMapping(value = "/admin/deleteQuestion", method = RequestMethod.POST)
+	@ResponseBody
+	public String deleteQuestion(ModelMap model) {
+		if (req.getParameter("questionId") != null) {
+			int questionId = Integer.parseInt(req.getParameter("questionId"));
+			questionService.deleteQuestion(questionId);
+			return "success";
+		}
+		return "unsuccess";
+	}
+
+	@RequestMapping(value = "/admin/updateQuestion", method = RequestMethod.POST)
+	public ResponseEntity<ObjectNode> upatgeQuestion(MultipartHttpServletRequest request) {
+		Map<String, MultipartFile> fileMap = request.getFileMap();
+		Gson gson= new Gson();
+		String questionJson = request.getParameter("question");
+		Question question = gson.fromJson(questionJson, Question.class);
+		LOGGER.info("admin post called....");
+		for(String key : request.getParameterMap().keySet()) {
+			LOGGER.info("key -" + key + "- value=" + request.getParameter(key));
+		}
+		
+		LOGGER.info("q=." + question);
+		questionService.updateQuestion(fileMap, request,question);
+		return new ResponseEntity<ObjectNode>(HttpStatus.OK);
+	}
 }

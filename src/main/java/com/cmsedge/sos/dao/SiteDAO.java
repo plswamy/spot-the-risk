@@ -1,5 +1,10 @@
 package com.cmsedge.sos.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,7 +16,10 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -65,15 +73,30 @@ public class SiteDAO extends JdbcDaoSupport implements ISiteDAO {
 	}
 
 	@Override
-	public void addSite(Site site) {
+	public int addSite(Site site) {
 		//if (!isSiteExists(site.getSiteName())) {
 			String sql = "insert into site (site_name, locale, created_at, status) values (?,?,?,?)";
-		int[] types = { Types.VARCHAR, Types.VARCHAR, Types.TIMESTAMP, Types.VARCHAR };
-			jdbcTemplate.update(sql,
-					new Object[] { site.getSiteName(), site.getLocale(), new Date(), site.getStatus() },
-				types);
+		//int[] types = { Types.VARCHAR, Types.VARCHAR, Types.TIMESTAMP, Types.VARCHAR };
+			//jdbcTemplate.update(sql,
+					//new Object[] { site.getSiteName(), site.getLocale(), new Date(), site.getStatus() },
+				//types);
 		// }new Object[] { Types.VARCHAR, Types.VARCHAR, Types.TIMESTAMP,
 		// Types.VARCHAR }
+			KeyHolder holder = new GeneratedKeyHolder();
+			int rows = jdbcTemplate.update(new PreparedStatementCreator() {
+				@Override
+				public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+					PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+					ps.setString(1, site.getSiteName());
+					ps.setString(2, site.getLocale());
+					ps.setTimestamp(3, (Timestamp) new Date());
+					ps.setString(4, site.getStatus());
+					return ps;
+				}
+			}, holder);
+			if(rows > 0)
+			return holder.getKey().intValue();
+			else return 0;
 	}
 
 	@Override
@@ -104,6 +127,7 @@ public class SiteDAO extends JdbcDaoSupport implements ISiteDAO {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<String> getAllLocale() {
 
