@@ -42,12 +42,12 @@
 
     <!-- import css files -->
     <link href="assets/css/normalize.css" rel="stylesheet" type="text/css" />
-    <!--<link href="http://spottherisk.com/assets/css/base.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="/assets/css/base.css" rel="stylesheet" type="text/css" />-->
     <link href="assets/css/skeleton.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
     <link href="assets/js/vendor/royalslider/royalslider.css" rel="stylesheet" type="text/css" />
     <link href="assets/js/vendor/royalslider/default/rs-default.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="http://spottherisk.com/assets/img/favicon.ico" type="image/vnd.microsoft.icon" /><!-- type="image/x-icon" -->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/vnd.microsoft.icon" /><!-- type="image/x-icon" -->
 
     <script src="assets/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 
