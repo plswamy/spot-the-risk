@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="assets/css/ui-grid.css" type="text/css">
 
 	<!-- Bootstrap Core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
