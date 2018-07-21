@@ -269,12 +269,18 @@ body {
 /* 	border-right-width:1px; */
 }
 
-#downloads-wrapper
-{
-	height: 52px;
-	margin-top: 24px;
-	margin-left: 650px;
-	border:1px solid #d7d7d7;
+#downloads-wrapper {
+    height: 52px;
+    margin-top: 24px;
+    border: 1px solid #d7d7d7;
+    float: right;
+    padding-left: 12px;
+}
+
+@media (max-width: 768px) {
+#downloads-wrapper {
+    margin-top: -24px;
+}
 }
 
 #downloads
