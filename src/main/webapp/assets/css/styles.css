@@ -415,6 +415,10 @@
     border-top: 1px solid #cfcfcf;
 }
 
+.footer, .footer a {
+    color: #a8b5bc;
+}
+
 .footer-left {
 	float: left;
 }
