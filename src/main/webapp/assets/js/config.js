@@ -40,7 +40,7 @@ require.config({
         'services-module': 'services/module',
 
         // angularjs + modules
-         angular: 'bower_components/angular/angular.min',
+         angular: 'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.1/angular.min',
         'angular-resource': 'bower_components/angular-resource/angular-resource',
         'angular-ui-router': 'bower_components/angular-ui-router/angular-ui-router.min',
 		'ngStorage': 'bower_components/ngstorage/ngStorage.min',
