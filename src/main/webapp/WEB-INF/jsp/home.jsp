@@ -54,7 +54,8 @@
 
     <!-- <script src="assets/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script> -->
 
-    <script src="assets/js/jquery.min.js"></script>
+    <!-- <script src="assets/js/jquery.min.js" defer="true"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="assets/js/bower_components/jquery/jquery.min.js"><\/script>')</script>
     <!-- import js files -->
     <script type="text/javascript" src="assets/js/vendor/jquery-ui-1.8.23.custom.min.js"></script>
@@ -62,13 +63,13 @@
     <!-- <script type="text/javascript" src="assets/js/vendor/jquery.scrollTo.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.13/jquery.scrollTo.min.js"></script>
     
-    <script type="text/javascript" src="assets/js/vendor/stopwatch.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/stopwatch.js" defer="defer"></script>
     
     <!-- <script type="text/javascript" src="assets/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.1/modernizr.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
 	
-    <script type="text/javascript" src="assets/js/jquery.form.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.form.js" defer="defer"></script>
     <script type="text/javascript" src="assets/js/jquery.isosquiz.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
     <script type="text/javascript" src="assets/js/plugins.js"></script>
@@ -90,7 +91,7 @@
     </div>
     <!-- /#wrapper -->
     <!-- <script type="text/javascript" data-main="assets/js/bootstrapper.js" src="assets/js/bower_components/requirejs/require.js"></script> -->
-    <script type="text/javascript" data-main="assets/js/bootstrapper.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.js"></script>
+    <script type="text/javascript" data-main="assets/js/bootstrapper.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.js" defer="defer"></script>
 	<!-- Loading bar html code -->
 	<div class="spinner" ng-if="dataLoading"><div class="spinnerround"></div></div>
 
