@@ -5,7 +5,7 @@ $(document).ready(function(){
   //console.log('// home');
 
   //alert( $(window).width() +'x'+$(window).height()+'\n[ '+$(document).width() +'x'+$(document).height()+' ]');
-console.log('calling royalSlider method');
+  //console.log('calling royalSlider method');
   $(".royalSlider").royalSlider({
 
 
