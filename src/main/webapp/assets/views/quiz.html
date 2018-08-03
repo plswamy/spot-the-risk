@@ -44,45 +44,37 @@
 </script>
 
 <div class="page-header quiz">
-
 	<div class="wlt-grid-container container">
 		<div class="main-container">
 			<div id="main" class="main container clearfix">
 				<div class="royalSlider rsDefault " id="rsQuestions">
-
-
 					<article id="quiz-landing" class="clearfix rsContent blue"
 						style="transition: opacity 400ms ease-in-out; visibility: visible; opacity: 1;">
 
 						<div class="eight columns left-wrapper">
 
-							<p class="underdashed rsABlock-subtitle">{{quizPageData.heading1}}</p>
+							<p class="underdashed rsABlock-subtitle" ng-cloak>{{quizPageData.heading1}}</p>
 
-							<p class="underdashed rsABlock-title" style="cursor: pointer;">
+							<p class="underdashed rsABlock-title" style="cursor: pointer;" ng-cloak>
 								<span style="color: #333333;">{{quizPageData.heading2Black}}</span><br>{{quizPageData.heading2White}}
 							</p>
 
-							<p class="underdashed rsABlock-subtitle">{{quizPageData.heading3}}</p>
+							<p class="underdashed rsABlock-subtitle" ng-cloak>{{quizPageData.heading3}}</p>
 
-							<p class="rsABlock-body " ng-repeat="item in quizPageData.info">
+							<p class="rsABlock-body" ng-repeat="item in quizPageData.info" ng-cloak>
 								{{item.text}}</p>
 
 							<div class="isos-btns" style="margin-top: 26px">
 								<a id="play-btn"
-									class="btn-42-anim btn-white-large color-blue apple" href=""
-									title="Play Spot the Risk!"
-									onclick="javascript: _gaq.push(['_trackPageview', '/play-quiz']);">Play
+									class="btn-42-anim btn-white-large color-blue apple" href="" title="Play Spot the Risk!" onclick="javascript: _gaq.push(['_trackPageview', '/play-quiz']);">Play
 									Spot the Risk!</a>
 							</div>
 
 						</div>
 
 						<div class="eight columns right-wrapper">
-
 							<p class="animation">
-								<img
-									src="/assets/img/question_images/intro.jpg"
-									style="max-width: 96%;" alt="Spot the Risk!">
+								<img src="/assets/img/question_images/intro.jpg" style="max-width: 96%;" alt="Spot the Risk!">
 							</p>
 
 						</div>
@@ -93,10 +85,10 @@
 
 						<div class="eight columns left-wrapper clearfix">
 
-							<p class="underdashed rsABlock-subtitle">Question {{qsn.id}}</p>
+							<p class="underdashed rsABlock-subtitle" ng-cloak>Question {{qsn.id}}</p>
 
 							<!-- <p class="underdashed rsABlock-question">WHICH OF THE FOLLOWING CAN BE VERY USEFUL FOR YOUR SECURITY <span style="color:#333333;">WHEN PACKING?</span></p> -->
-							<p class="underdashed rsABlock-question">{{qsn.content}}</p>
+							<p class="underdashed rsABlock-question" ng-cloak>{{qsn.content}}</p>
 
 							<div id="rsAnswers-{{qsn.id}}" class="answers-wrapper rsDefault">
 
@@ -105,22 +97,22 @@
 									<a id="a{{qsn.answers[0].id}}"
 										class="btn-answer-anim color-white" href="">
 										<div>
-											<span>{{qsn.answers[0].content}}</span>
+											<span ng-cloak>{{qsn.answers[0].content}}</span>
 										</div>
 									</a> <a id="a{{qsn.answers[1].id}}"
 										class="btn-answer-anim color-white" href="">
 										<div>
-											<span>{{qsn.answers[1].content}}</span>
+											<span ng-cloak>{{qsn.answers[1].content}}</span>
 										</div>
 									</a> <a id="a{{qsn.answers[2].id}}"
 										class="btn-answer-anim color-white" href="">
 										<div>
-											<span>{{qsn.answers[2].content}}</span>
+											<span ng-cloak>{{qsn.answers[2].content}}</span>
 										</div>
 									</a> <a id="a{{qsn.answers[3].id}}"
 										class="btn-answer-anim color-white" href="">
 										<div>
-											<span>{{qsn.answers[3].content}}</span>
+											<span ng-cloak>{{qsn.answers[3].content}}</span>
 										</div>
 									</a>
 
@@ -224,7 +216,7 @@
 									<span class="signup-input signup-input-select color-blue">
 									<select name="country"  id="country">
 									<option>Please select..</option>
-									<option ng-repeat="cnt in countries" value="{{cnt.optionValue}}">{{cnt.optionKey}}</option>	
+									<option ng-repeat="cnt in countries" value="{{cnt.optionValue}}" ng-cloak>{{cnt.optionKey}}</option>	
 									</select></span>
 									
 								</p>
