@@ -41,12 +41,12 @@ require.config({
 
         // angularjs + modules
          angular: 'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.1/angular.min',
-        'angular-resource': 'bower_components/angular-resource/angular-resource',
-        'angular-ui-router': 'bower_components/angular-ui-router/angular-ui-router.min',
-		'ngStorage': 'bower_components/ngstorage/ngStorage.min',
-		underscore: 'bower_components/underscore/underscore-min',
-		jquery: 'bower_components/jquery/jquery-1.11.3',
-		bootstrap: 'bower_components/bootstrap/js/bootstrap'/*,
+        'angular-resource': 'https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.3.0/angular-resource',
+        'angular-ui-router': 'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min',
+		'ngStorage': 'https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.0/ngStorage.min',
+		underscore: 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min',
+		jquery: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery',
+		bootstrap: 'https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min'/*,
 		angularGird: 'bower_components/ui-grid/ui-grid',
 		'isteven-multi-select': 'bower_components/angularmultiselect/isteven-multi-select',
 		angularUi: 'bower_components/angular-ui-bootstrap/ui-bootstrap',
