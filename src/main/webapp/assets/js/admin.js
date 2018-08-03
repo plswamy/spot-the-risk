@@ -110,7 +110,7 @@
   						links
   					};
   			var maxInfo=$("[id='info']").length;
-  			alert("maxInfo"+maxInfo)
+  			//alert("maxInfo"+maxInfo)
   	  		var maxLink=$("[id='link']").length;
   	  		for(var i=1;i<=maxInfo;i++){
   	  		var infoobj = {
@@ -393,19 +393,19 @@
   	function deleteQuetion(id) {
   		var boo=confirm("Are you sure want to delete?");
   		if(boo){
-  			alert("deleted")
+  			//alert("deleted")
   		}
   		else{
-  			alert("fooooooo");
+  			//alert("fooooooo");
   		}
 	}
   	function deletePage(){
   		var boo=confirm("Are you sure want to delete?");
   		if(boo){
-  			alert("deleted")
+  			//alert("deleted")
   		}
   		else{
-  			alert("fooooooo");
+  			//alert("fooooooo");
   		}
   	}
   
