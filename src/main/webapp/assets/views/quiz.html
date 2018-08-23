@@ -9,10 +9,17 @@
 <script type="text/javascript">
 	//var _gaq = _gaq || [];
 	//var _gaq =[];
-	var _gaq = !!_gaq ? window.location.reload(true) : [];
-	//console.log(_gaq);
-	_gaq.push([ '_setAccount', 'UA-35762965-1' ]);
-	_gaq.push([ '_trackPageview' ]);
+	var currUrl = window.location + "";
+		//console.log(currUrl);
+		if(typeof _gaq && currUrl.indexOf("/quiz") === -1) {
+			// assume that this has to navigate to quiz.
+			window.location="/#/quiz";
+			window.location.reload(true);
+		} else {
+		var _gaq = !!_gaq ? window.location.reload(true) : [];
+		_gaq.push([ '_setAccount', 'UA-35762965-1' ]);
+		_gaq.push([ '_trackPageview' ]);
+		}
 
 	(function() {
 		//console.log(" 111111111111 -------------- =============== ");
