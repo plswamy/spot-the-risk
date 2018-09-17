@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title ng-cloak>{{title}}</title>
-    <meta name="description" content="Test your knowledge on the basics of travel safety for a chance to win a $200 voucher every quarter" />
+    <meta name="description" content="Test your knowledge on the basics of travel safety" />
     <meta name="keywords" content="travel risk awareness, spot the risk, Spot the risk quiz, travel risk awareness quiz, travel safety quiz, travel security quiz" />
     <meta name="author" content="thisistommy" />
     <meta name="robots" content="index, follow" />
@@ -17,7 +17,7 @@
     <meta property="og:url" content="http://spottherisk.com/" />
     <meta property="og:image" content="assets/img/share-pic.jpg" />
     <meta property="og:site_name" content="Spot the risk" />
-    <meta property="og:description" content="Test your knowledge on the basics of travel safety for a chance to win a $200 voucher every quarter" />
+    <meta property="og:description" content="Test your knowledge on the basics of travel safety" />
 
     <link rel="stylesheet" href="assets/css/ui-grid.css" type="text/css">
 
