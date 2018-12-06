@@ -91,6 +91,11 @@ public class SOSController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "/quiz")
+    	public RedirectView redirectToQuiz() {
+        return new RedirectView("/#/quiz");
+    	}
+	
 	@RequestMapping(value = "/questions/{id}", method = RequestMethod.GET, produces = { "application/json" })
 	public List<Question> getQuestions(@PathVariable("id") int siteId) {
 		List<Question> questions = questionService.getAllQuestions(siteId);
