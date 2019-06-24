@@ -23,7 +23,7 @@
 						<div class="underdashed" id="leaderboard">
 
               <div class="player-score clearfix" ng-repeat="list in leaderBoardData.leaderboardTable">
-								<p class="user-num">{{list.id}} </p>
+								<p class="user-num">{{list.id | number}} </p>
 								<p class="user-score">{{list.score}} </p>
 								<p class="user-name"><span>{{list.name}} </span></p>
               </div>
