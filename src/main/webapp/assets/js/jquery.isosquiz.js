@@ -300,7 +300,7 @@
                 	$.each(t,function(){
                     		if(i<5){
                             		$("#leaderboard-wrapper #leaderboard").append("\r\n<div class=\"player-score clearfix\">\r\n"+ 
-            							"		<p class=\"user-num\">"+score[i].id+"</p>\r\n" + 
+            							"		<p class=\"user-num\">"+parseInt(score[i].id)+"</p>\r\n" + 
             							"		<p class=\"user-score\">"+score[i].score+"</p>\r\n" + 
             							"		<p class=\"user-name\"><span>"+score[i].name+"</span></p>\r\n" + 
             							"		</div>\r\n");
@@ -315,7 +315,7 @@
                                 				"		  fjs.parentNode.insertBefore(js, fjs);\r\n" + 
                                 				"		}(document, 'script', 'facebook-jssdk'));</script>"+              
                         					"		\r\n<div id=\"my-score\" class=\"player-score clearfix\">\r\n" + 
-                        					"		<p class=\"user-num\">"+score[i].id+"</p>\r\n" + 
+                        					"		<p class=\"user-num\">"+parseInt(score[i].id)+"</p>\r\n" + 
                         					"		<p class=\"user-score\">"+score[i].score+"</p>\r\n" + 
                         					"		<p class=\"user-name\"><span>"+score[i].name+"</span></p>\r\n" + 
                         					"		</div>\r\n"+
